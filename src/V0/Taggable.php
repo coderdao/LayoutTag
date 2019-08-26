@@ -1,6 +1,6 @@
 <?php
 
-namespace Abo\LayoutTag;
+namespace Abo\LayoutTag\V0;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
