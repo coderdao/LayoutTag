@@ -28,5 +28,3 @@
 
 
 #### 码云特技
-
-的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
