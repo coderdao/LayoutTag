@@ -1,0 +1,25 @@
+{
+    "name": "abo/layouttag",
+    "type": "laravel-package",
+    "description": "Used with layoutit Backend extension package -- Tag",
+    "keywords": [ "php", "laravel", "elasticsearch", "redisbitmap"  ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "abo",
+            "email": "abo2013@foxmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Abo\\LayoutTag\\": "src/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": "Abo\\LayoutTag\\TagsServiceProvider"
+        }
+    }
+}
