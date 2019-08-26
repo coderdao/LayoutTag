@@ -16,7 +16,7 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('tag_index') ) {
             Schema::create('tag_index', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
-                $table->string('name');
+                $table->string('name',64);
                 $table->timestamps();
             });
         }else{
@@ -26,7 +26,7 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('tag_relation') ) {
             Schema::create('tag_relation', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
-                $table->increments('tag_id')->unsigned();
+                $table->unsignedInteger('tag_id');
                 $table->morphs('taggable');
             });
         }else{
