@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeArtisan\LaravelTags;
+namespace Abo\LayoutTag;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
