@@ -40,7 +40,7 @@ class CreateTagsTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taggables');
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('tag_relation');
+        Schema::dropIfExists('tag_index');
     }
 }
