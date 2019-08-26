@@ -13,20 +13,25 @@ class CreateTagsTables extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->timestamps();
-        });
+        if ( !Schema::hasTable('tag_index') ) {
+            Schema::create('tag_index', function (Blueprint $table) {
+                $table->increments('id')->unsigned();
+                $table->string('name');
+                $table->timestamps();
+            });
+        }else{
+            echo 'tag_index 表已存在'."\r\n";
+        }
 
-        Schema::create('taggables', function (Blueprint $table) {
-            $table->bigInteger('tag_id')->unsigned();
-            $table->morphs('taggable');
-
-            $table->foreign('tag_id')
-                ->references('id')->on('tags')
-                ->onDelete('cascade');
-        });
+        if ( !Schema::hasTable('tag_relation') ) {
+            Schema::create('tag_relation', function (Blueprint $table) {
+                $table->increments('id')->unsigned();
+                $table->increments('tag_id')->unsigned();
+                $table->morphs('taggable');
+            });
+        }else{
+            echo 'tag_relation 表已存在'."\r\n";
+        }
     }
 
     /**
