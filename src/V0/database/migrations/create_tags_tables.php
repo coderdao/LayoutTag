@@ -16,8 +16,8 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('tag_index') ) {
             Schema::create('tag_index', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
-                $table->string('name',64);
-                $table->timestamps();
+                $table->string('name',64)->default( '' )->comment('标签名');
+                $table->timestamps()->default( \Illuminate\Support\Facades\DB::raw( 'CURRENT_TIMESTAMP' ) );
             });
         }else{
             echo 'tag_index 表已存在'."\r\n";
@@ -26,8 +26,7 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('tag_relation') ) {
             Schema::create('tag_relation', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
-                $table->unsignedInteger('tag_id');
-                $table->morphs('taggable');
+                $table->unsignedInteger('tag_id')->comment('tag_index 主键 id');
             });
         }else{
             echo 'tag_relation 表已存在'."\r\n";
