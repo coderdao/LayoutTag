@@ -17,6 +17,7 @@ php artisan vendor:publish --tag layout-tags
 php artisan make:migration create_tags_tables
 ```
 
+#### 怎么使用
 ##### 使用实体
 ````php
 <?php
