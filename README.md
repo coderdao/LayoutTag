@@ -31,4 +31,7 @@ class Post extends Model
 }
 ````
 
-
+##### 新建标签
+```php
+Tag::create(['name' => 'New tag']);
+```
