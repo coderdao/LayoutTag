@@ -12,11 +12,11 @@ composer require abo/layouttag
 php artisan vendor:publish --tag layout-tags
 ```
 
-#### 使用说明
+#### 迁移数据库
+```shell
+php artisan make:migration create_tags_tables
+```
 
-1. xxxx
-2. xxxx
-3. xxxx
 
 #### 参与贡献
 
