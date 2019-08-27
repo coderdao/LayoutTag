@@ -5,7 +5,7 @@
 
 #### 安装
 ```shell
-composer require abo/layouttag:
+composer require abo/layouttag:dev
 ```
 
 #### 迁移数据库
