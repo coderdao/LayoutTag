@@ -41,3 +41,8 @@ Tag::create(['name' => 'New tag']);
 $post = BlogPost::find(1);
 $post->syncTags(['foo', 'bar', 4, 5, 6]);
 ```
+##### 查询标签列表
+```php
+$post = BlogPost::find(1);
+dd($post->tags);
+```
