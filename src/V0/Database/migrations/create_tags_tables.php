@@ -18,8 +18,8 @@ class CreateTagsTables extends Migration
                 $table->increments('id')->unsigned();
                 $table->string('name',64)->default( '' )->unique()->comment('标签名');
                 $table->string('attr',64)->default( '' )->unique()->comment('标签属性 [ 冗余字段 ]');
-                $this->timestamp('created_at', $precision)->nullable()->useCurrent();
-                $this->timestamp('updated_at', $precision)->nullable()->useCurrent();
+                $table->timestamp('created_at')->nullable()->useCurrent();
+                $table->timestamp('updated_at')->nullable()->useCurrent();
             });
         }else{
             echo 'layout_tag_index 表已存在'."\r\n";
@@ -33,7 +33,7 @@ class CreateTagsTables extends Migration
                 $table->unsignedInteger('tag_id')->comment('layout_tag_index 主键 id');
                 $table->string('name',64)->default( '' )->unique()->comment('标签名[ 冗余 ]');
                 $table->string('attr',64)->default( '' )->unique()->comment('标签属性 [ 冗余字段 ]');
-                $this->timestamp('created_at', $precision)->nullable()->useCurrent();
+                $table->timestamp('created_at')->nullable()->useCurrent();
             });
         }else{
             echo 'layout_tag_relation 表已存在'."\r\n";
