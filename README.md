@@ -6,11 +6,12 @@
 #### 安装
 ```shell
 composer require abo/layouttag
-php artisan vendor:publish --tag layout-tags
+
 ```
 
 #### 迁移数据库
 ```shell
+
 php artisan make:migration create_tags_tables
 ```
 
