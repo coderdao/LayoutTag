@@ -17,7 +17,7 @@ class CreateTagsTables extends Migration
             Schema::create('tag_index', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
                 $table->string('name',64)->default( '' )->comment('标签名');
-                $table->timestamps()->default( \Illuminate\Support\Facades\DB::raw( 'CURRENT_TIMESTAMP' ) );
+                $table->timestamps();
             });
         }else{
             echo 'tag_index 表已存在'."\r\n";
