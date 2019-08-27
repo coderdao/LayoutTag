@@ -16,8 +16,9 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('layout_tag_index') ) {
             Schema::create('layout_tag_index', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
-                $table->string('name',64)->default( '' )->comment('标签名');
-                $table->timestamps()->default( \Illuminate\Support\Facades\DB::raw( 'CURRENT_TIMESTAMP' ) );
+                $table->string('name',64)->default( '' )->unique()->comment('标签名');
+                $this->timestamp('created_at', $precision)->nullable()->useCurrent();
+                $this->timestamp('updated_at', $precision)->nullable()->useCurrent();
             });
         }else{
             echo 'layout_tag_index 表已存在'."\r\n";
@@ -26,7 +27,10 @@ class CreateTagsTables extends Migration
         if ( !Schema::hasTable('layout_tag_relation') ) {
             Schema::create('layout_tag_relation', function (Blueprint $table) {
                 $table->increments('id')->unsigned();
+                $table->string( 'key_type', 30 )->comment('关联类型,确认对应表');
+                $table->unsignedInteger('key_id')->comment('关联id 与key_type配合使用');
                 $table->unsignedInteger('tag_id')->comment('layout_tag_index 主键 id');
+                $this->timestamp('created_at', $precision)->nullable()->useCurrent();
             });
         }else{
             echo 'layout_tag_relation 表已存在'."\r\n";
