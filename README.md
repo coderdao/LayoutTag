@@ -3,9 +3,6 @@
 #### 介绍
 与layoutit 配套使用 后端扩展包
 
-#### 介绍
-与layoutit 配套使用 后端扩展包
-
 #### 安装
 ```shell
 composer require abo/layouttag
@@ -35,7 +32,6 @@ class Post extends Model
 ```php
 Tag::create(['name' => 'New tag']);
 ```
-
 ##### 关联标签
 ```php
 $post = BlogPost::find(1);
