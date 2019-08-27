@@ -2,7 +2,7 @@
     "name": "abo/layouttag",
     "type": "laravel-package",
     "description": "Used with layoutit Backend extension package -- Tag",
-    "keywords": [ "php", "laravel", "layoutit", "tag"  ],
+    "keywords": [ "php", "laravel", "elasticsearch", "redisbitmap"  ],
     "license": "Apache-2.0",
     "authors": [
         {

@@ -5,19 +5,17 @@
 
 #### 安装
 ```shell
-composer require abo/layouttag:dev-master
+composer require abo/layouttag
+php artisan vendor:publish --tag layout-tags
 ```
 
 #### 迁移数据库
 ```shell
-// 迁移数据库文件
-php artisan vendor:publish --tag layout-tags
-
-// 迁移数据库
-php artisan make:migration create_tags_tables
+php artisan migrate
+// php artisan migrate:rollback
 ```
+[laravel migrate 文档](https://learnku.com/docs/laravel/5.5/migrations/1329)
 
-<br />
 #### 怎么使用
 ##### 使用实体
 ````php
@@ -36,13 +34,11 @@ class Post extends Model
 ```php
 Tag::create(['name' => 'New tag']);
 ```
-
 ##### 关联标签
 ```php
 $post = BlogPost::find(1);
 $post->syncTags(['foo', 'bar', 4, 5, 6]);
 ```
-
 ##### 查询标签列表
 ```php
 $post = BlogPost::find(1);
