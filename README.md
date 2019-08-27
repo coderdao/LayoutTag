@@ -17,6 +17,18 @@ php artisan vendor:publish --tag layout-tags
 php artisan make:migration create_tags_tables
 ```
 
+##### 使用实体
+````php
+<?php
+...
+use Abo\LayoutTag\V0\Taggable;
+...
+class Post extends Model
+{
+    use Taggable;
+    ...
+}
+````
 
 #### 参与贡献
 
