@@ -3,15 +3,14 @@
 #### 介绍
 与layoutit 配套使用 后端扩展包
 
-#### 软件架构
-软件架构说明
+#### 介绍
+与layoutit 配套使用 后端扩展包
 
-
-#### 安装教程
-
-1. xxxx
-2. xxxx
-3. xxxx
+#### 安装
+```shell
+composer require abo/layouttag
+php artisan vendor:publish --tag layout-tags
+```
 
 #### 使用说明
 
