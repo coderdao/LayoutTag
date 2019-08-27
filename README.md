@@ -35,3 +35,9 @@ class Post extends Model
 ```php
 Tag::create(['name' => 'New tag']);
 ```
+
+##### 关联标签
+```php
+$post = BlogPost::find(1);
+$post->syncTags(['foo', 'bar', 4, 5, 6]);
+```
