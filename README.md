@@ -11,7 +11,7 @@ composer require abo/layouttag
 
 #### 迁移数据库
 ```shell
-
+php artisan vendor:publish --tag layout-tags
 php artisan make:migration create_tags_tables
 ```
 
