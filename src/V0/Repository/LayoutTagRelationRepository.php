@@ -22,6 +22,7 @@ class LayoutTagRelationRepository extends BaseRepository
 
     /**
      * 某实体的关联标签列表
+     * @method LayoutTagRelationRepository::listRelationTags
      * @param string $keyType 实体类型
      * @param int $keyId      实体id
      * @return array          关联标签列表
