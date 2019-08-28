@@ -19,7 +19,7 @@ class LayoutTagRepository extends BaseRepository
      * @return array [ '标签名' => 对应ids ]
      * @throws \Exception
      */
-    public function insertTags( $tag )
+    public function findOrCreateTags( $tag )
     {
         $ret2Return = [];
         if( !$tag ){ return $ret2Return; }
