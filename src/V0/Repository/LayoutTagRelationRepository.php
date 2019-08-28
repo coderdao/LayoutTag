@@ -21,11 +21,19 @@ class LayoutTagRelationRepository extends BaseRepository
     }
 
     /**
-     *
+     * 某实体的关联标签
      */
-    public function listRelationTags()
+    public function listRelationTags( string $keyType, int $keyId, $tagName = [] )
     {
+        if ( !$keyType && ( !$keyId && !$tagName ) ) { throw new \Exception( '暂无更多信息', -100 ); }
 
+        $SearchModel = $this->Model->where( 'key_type', '=', $keyType );
+        if ( $keyId ) {
+            $SearchModel = $SearchModel->where( 'key_id', '=', $keyId );
+        }
+        if ( $tagName ) {
+            $SearchModel = $SearchModel->where( 'key_id', '=', $keyId );
+        }
     }
 
     /**
