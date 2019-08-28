@@ -21,7 +21,11 @@ class LayoutTagRelationRepository extends BaseRepository
     }
 
     /**
-     * 某实体的关联标签
+     * 某实体的关联标签列表
+     * @param string $keyType 实体类型
+     * @param int $keyId      实体id
+     * @return array          关联标签列表
+     * @throws \Exception
      */
     public function listRelationTags( string $keyType, int $keyId )
     {
@@ -46,7 +50,7 @@ class LayoutTagRelationRepository extends BaseRepository
      * @method LayoutTagRelationRepository::saveTagRelation
      * @param string $keyType 关联类型
      * @param int $keyId      关联id
-     * @param $tagName        标签名
+     * @param string $tagName        标签名
      * @return bool|int|mixed 保存个数
      * @throws \Exception
      */
