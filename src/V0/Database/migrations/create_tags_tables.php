@@ -35,7 +35,9 @@ class CreateTagsTables extends Migration
                 $table->string('attr',64)->default( '' )->comment('标签属性 [ 冗余字段 ]');
                 $table->timestamp('created_at')->nullable()->useCurrent();
 
-
+                $table->unique( [ 'key_type', 'key_id', 'tag_id' ] );
+                $table->index( 'tag_id' );
+                $table->index( 'name' );
             });
         }else{
             echo 'layout_tag_relation 表已存在'."\r\n";
