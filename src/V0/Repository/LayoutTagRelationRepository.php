@@ -1,6 +1,5 @@
 <?php
 /**
- * Function:
  */
 
 namespace Abo\LayoutTag\V0\Repository;
