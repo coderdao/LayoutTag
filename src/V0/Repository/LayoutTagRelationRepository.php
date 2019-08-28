@@ -20,6 +20,10 @@ class LayoutTagRelationRepository extends BaseRepository
         parent::__construct( new LayoutTagRelation() );
     }
 
+    public function listRelationTags()
+    {
+
+    }
 
     /**
      * 保存 ( 增/改 ) 标签信息
