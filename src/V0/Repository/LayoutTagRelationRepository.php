@@ -41,7 +41,6 @@ class LayoutTagRelationRepository extends BaseRepository
         if ( !$tagArray ) { throw new \Exception( '未成功添加标签', -100 ); }
 
         // 保存标签关系
-        $data2Insert = [];
         $i2Count = 0;
         foreach ( $tagArray as $k2TagName => $v2TagId ) {
             if ( !$k2TagName || !$v2TagId ) { continue; }
