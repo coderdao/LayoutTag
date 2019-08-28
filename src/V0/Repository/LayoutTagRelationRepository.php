@@ -20,6 +20,9 @@ class LayoutTagRelationRepository extends BaseRepository
         parent::__construct( new LayoutTagRelation() );
     }
 
+    /**
+     *
+     */
     public function listRelationTags()
     {
 
