@@ -2,7 +2,6 @@
 /**
  * Function:
  * Description:
- * Email: abo2013@foxmail.com
  */
 
 namespace Abo\LayoutTag\V0\Repository;
