@@ -13,6 +13,8 @@ php artisan vendor:publish --tag layout-tags
 ```shell
 php artisan migrate
 // php artisan migrate:rollback
+
+🚫会导致删库删表,禁止使用 php artisan migrate:fresh
 ```
 [laravel migrate 文档](https://learnku.com/docs/laravel/5.5/migrations/1329)
 
