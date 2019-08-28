@@ -30,6 +30,7 @@ class LayoutTagRelationRepository extends BaseRepository
     public function listRelationTags( string $keyType, int $keyId )
     {
         // if ( !$keyType && ( !$keyId && !$tagName ) ) { throw new \Exception( '暂无更多信息', -100 ); }
+        if ( !$keyType || !$keyId ) { throw new \Exception( '暂无更多信息', -100 ); }
 
         $SearchModel = $this->Model->select( [ 'tag_id', 'name' ] )
             ->where( 'key_type', '=', $keyType );
