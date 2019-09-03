@@ -53,6 +53,7 @@ class LayoutTagRepository extends BaseRepository
             $ret2Return = $ret2ExistTagId->toArray();
             $tagName = array_diff( $tagName, array_keys( $ret2Return ) ); // 不存在标签留下一步新增
         }
+        if ( !$tagName ) { return $ret2Return; }
 
         // 组织批量插入数组
         foreach ( $tagName as $v2Tag ) {
