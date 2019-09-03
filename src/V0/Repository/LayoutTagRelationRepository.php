@@ -41,6 +41,15 @@ class LayoutTagRelationRepository extends BaseRepository
         return $SearchModel->toArray();
     }
 
+    /**
+     * 保存 ( 增/改 ) 标签信息
+     * @method LayoutTagRelationRepository::saveTagRelation
+     * @param string $keyType 关联类型
+     * @param int $keyId      关联id
+     * @param string $tagName        标签名
+     * @return bool|int|mixed 保存个数
+     * @throws \Exception
+     */
     public function saveTagRelation( string $keyType, $keyId, $tagName )
     {
         $ret2Return = '';
@@ -53,40 +62,8 @@ class LayoutTagRelationRepository extends BaseRepository
                 $ret2Return = $this->saveTagRelationOne( $keyType, $v2KeyId, $tagName );
             }
         }
-    }
 
-    /**
-     * 保存 ( 增/改 ) 标签信息
-     * @method LayoutTagRelationRepository::saveTagRelation
-     * @param string $keyType 关联类型
-     * @param int $keyId      关联id
-     * @param string $tagName        标签名
-     * @return bool|int|mixed 保存个数
-     * @throws \Exception
-     */
-    private function saveTagRelationOne( string $keyType, $keyId, $tagName )
-    {
-        if ( !$keyType || !$keyId || !$tagName ) {
-            return false;
-        }
-
-        // 寻找 / 添加标签
-        $tagArray = ( new LayoutTagRepository() )->findOrCreateTags( $tagName );
-        if ( !$tagArray ) { throw new \Exception( '未成功添加标签', -100 ); }
-
-        // 保存标签关系
-        foreach ( $tagArray as $k2TagName => $v2TagId ) {
-            if ( !$k2TagName || !$v2TagId ) { continue; }
-            $data2Insert[] = [
-                'key_type' => $keyType,
-                'key_id' => $keyId,
-                'tag_id' => $v2TagId,
-                'name' => $k2TagName,
-            ];
-        }
-        $ret = self::duplicateKeyInsertArray( $data2Insert, $this->Model->getTable() );
-
-        return $ret;
+        return $ret2Return;
     }
 
     /**
@@ -117,5 +94,39 @@ class LayoutTagRelationRepository extends BaseRepository
         }
 
         return $SearchModel->delete();
+    }
+
+
+    /**
+     * 单次保存 ( 增/改 ) 标签信息
+     * @param string $keyType 关联类型
+     * @param int $keyId      关联id
+     * @param string $tagName        标签名
+     * @return bool|int|mixed 保存个数
+     * @throws \Exception
+     */
+    private function saveTagRelationOne( string $keyType, $keyId, $tagName )
+    {
+        if ( !$keyType || !$keyId || !$tagName ) {
+            return false;
+        }
+
+        // 寻找 / 添加标签
+        $tagArray = ( new LayoutTagRepository() )->findOrCreateTags( $tagName );
+        if ( !$tagArray ) { throw new \Exception( '未成功添加标签', -100 ); }
+
+        // 保存标签关系
+        foreach ( $tagArray as $k2TagName => $v2TagId ) {
+            if ( !$k2TagName || !$v2TagId ) { continue; }
+            $data2Insert[] = [
+                'key_type' => $keyType,
+                'key_id' => $keyId,
+                'tag_id' => $v2TagId,
+                'name' => $k2TagName,
+            ];
+        }
+        $ret = self::duplicateKeyInsertArray( $data2Insert, $this->Model->getTable() );
+
+        return $ret;
     }
 }
