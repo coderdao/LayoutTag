@@ -41,19 +41,10 @@ class LayoutTagRelationRepository extends BaseRepository
         return $SearchModel->toArray();
     }
 
-    /**
-     * 保存 ( 增/改 ) 标签信息
-     * @method LayoutTagRelationRepository::saveTagRelation
-     * @param string $keyType 关联类型
-     * @param int $keyId      关联id
-     * @param string $tagName        标签名
-     * @return bool|int|mixed 保存个数
-     * @throws \Exception
-     */
     public function saveTagRelation( string $keyType, $keyId, $tagName )
     {
-        $ret2Return = '';
-        if ( is_int( $keyId ) ) {
+        $ret2Return = false;
+        if ( intval( $keyId ) == $keyId ) {
             $ret2Return = $this->saveTagRelationOne( $keyType, $keyId, $tagName );
         }elseif( strstr( $keyId, ',' ) || is_array( $keyId ) ){
             if ( strstr( $keyId, ',' ) ) { $keyId = explode( ',', $keyId ); }
@@ -96,9 +87,9 @@ class LayoutTagRelationRepository extends BaseRepository
         return $SearchModel->delete();
     }
 
-
     /**
-     * 单次保存 ( 增/改 ) 标签信息
+     * 单个保存 ( 增/改 ) 标签信息
+     * @method LayoutTagRelationRepository::saveTagRelation
      * @param string $keyType 关联类型
      * @param int $keyId      关联id
      * @param string $tagName        标签名
@@ -129,4 +120,5 @@ class LayoutTagRelationRepository extends BaseRepository
 
         return $ret;
     }
+
 }
