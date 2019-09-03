@@ -34,6 +34,14 @@ class LayoutTagRepository extends BaseRepository
         return $ret2Return;
     }
 
+    /**
+     * 添加标签数组
+     * @method LayoutTagRepository::insertTagArrayV2
+     * @description [3次链接]查询去重, 插入,查询 ( 唯一键会保持不会重复,但会抛异常,这里忽略 )
+     * @param array $tagName 标签名 ( 数组 )
+     * @return array
+     * @throws \Exception
+     */
     private function insertTagArrayV2( array $tagName )
     {
         $tagName = array_unique( array_filter( $tagName ) );
