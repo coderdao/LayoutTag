@@ -44,51 +44,16 @@ class LayoutTagRelationRepository extends BaseRepository
     public function saveTagRelation( string $keyType, $keyId, $tagName )
     {
         $ret2Return = false;
-        if ( intval( $keyId ) == $keyId ) {
-            $ret2Return = $this->saveTagRelationOne( $keyType, $keyId, $tagName );
-        }elseif( strstr( $keyId, ',' ) || is_array( $keyId ) ){
-            if ( strstr( $keyId, ',' ) ) { $keyId = explode( ',', $keyId ); }
-
-            foreach ( $keyId as $v2KeyId ) {
-                $ret2Return = $this->saveTagRelationOne( $keyType, $v2KeyId, $tagName );
-            }
+        $keyId = explode( ',', trim( $keyId, ',' ) );
+        foreach ( $keyId as $v2KeyId ) {
+            $ret2Return = $this->saveTagRelationOne( $keyType, $v2KeyId, $tagName );
         }
 
         return $ret2Return;
     }
 
     /**
-     * 删除标签关联
-     * @method LayoutTagRelationRepository::delTagRelation
-     * @param string $keyType 关联类型
-     * @param int $keyId 关联id
-     * @param string|array $tagName 标签
-     * @return bool|int|null
-     */
-    public function delTagRelation( string $keyType, int $keyId, $tagName )
-    {
-        if ( !$keyType || !$keyId ) {
-            return false;
-        }
-
-        $SearchModel = $this->Model->where( 'key_type', '=', trim( $keyType ) )
-            ->where( 'key_id', '=', intval( $keyId ) );
-
-        if ( is_string( $tagName ) ) {
-            $SearchModel = $SearchModel->where( 'name', '=', trim( $tagName ) );
-        }elseif( is_array( $tagName ) ) {
-            foreach ( $tagName as &$v2Tag ) {
-                $v2Tag = trim( $v2Tag );
-            }
-
-            $SearchModel = $SearchModel->whereIn( 'name', $tagName );
-        }
-
-        return $SearchModel->delete();
-    }
-
-    /**
-     * 单个保存 ( 增/改 ) 标签信息
+     * 保存 ( 增/改 ) 标签信息
      * @method LayoutTagRelationRepository::saveTagRelation
      * @param string $keyType 关联类型
      * @param int $keyId      关联id
@@ -121,4 +86,33 @@ class LayoutTagRelationRepository extends BaseRepository
         return $ret;
     }
 
+    /**
+     * 删除标签关联
+     * @method LayoutTagRelationRepository::delTagRelation
+     * @param string $keyType 关联类型
+     * @param int $keyId 关联id
+     * @param string|array $tagName 标签
+     * @return bool|int|null
+     */
+    public function delTagRelation( string $keyType, int $keyId, $tagName )
+    {
+        if ( !$keyType || !$keyId ) {
+            return false;
+        }
+
+        $SearchModel = $this->Model->where( 'key_type', '=', trim( $keyType ) )
+            ->where( 'key_id', '=', intval( $keyId ) );
+
+        if ( is_string( $tagName ) ) {
+            $SearchModel = $SearchModel->where( 'name', '=', trim( $tagName ) );
+        }elseif( is_array( $tagName ) ) {
+            foreach ( $tagName as &$v2Tag ) {
+                $v2Tag = trim( $v2Tag );
+            }
+
+            $SearchModel = $SearchModel->whereIn( 'name', $tagName );
+        }
+
+        return $SearchModel->delete();
+    }
 }
