@@ -28,7 +28,7 @@ class LayoutTagRepository extends BaseRepository
             $tagInfo = $this->insertTag( $tag ); // list( $tagName, $tagId ) = $this->insertTag( $tag );
             $ret2Return[ $tagInfo[0] ] = $tagInfo[1];
         }elseif ( is_array( $tag ) ) {
-            $ret2Return = $this->insertTagArray( $tag );
+            $ret2Return = $this->insertTagArrayV2( $tag );
         }
 
         return $ret2Return;
