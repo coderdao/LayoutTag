@@ -58,7 +58,7 @@ class LayoutTagRepository extends BaseRepository
         foreach ( $tagName as $v2Tag ) {
             $data2Insert[] = [ 'name' => trim( $v2Tag ) ];
         }
-        $ret2ExistTagId = $this->Model->insert( $data2Insert );
+        $this->Model->insert( $data2Insert );
 
         // 获取全部 tag & id
         $ret2Return = $this->Model->whereIn( 'name', $tagName )->pluck( 'id', 'name' )->toArray();
