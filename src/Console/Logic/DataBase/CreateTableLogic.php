@@ -24,7 +24,7 @@ class CreateTableLogic
         DB::statement( $createLayoutTagTableSql );
 
         $createLayoutTagRelationTableSql = str_replace( LayoutTagRelationTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagRelationTableConts::CREATE_TABLE_SQL );
-        DB::statement( $createLayoutTagRelationSql );
+        DB::statement( $createLayoutTagRelationTableSql );
     }
 
 }
