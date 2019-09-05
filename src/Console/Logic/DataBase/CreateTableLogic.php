@@ -19,13 +19,20 @@ class CreateTableLogic
     {
         if ( !$tableName ) { return false; }
 
-        DB::beginTransaction();
-        $createLayoutTagTableSql = str_replace( LayoutTagTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagTableConts::CREATE_TABLE_SQL );
-        DB::statement( $createLayoutTagTableSql );
+        try {
+            DB::beginTransaction();
 
-        $createLayoutTagRelationTableSql = str_replace( LayoutTagRelationTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagRelationTableConts::CREATE_TABLE_SQL );
-        DB::statement( $createLayoutTagRelationTableSql );
-        DB::commit();
+            $createLayoutTagTableSql = str_replace(LayoutTagTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagTableConts::CREATE_TABLE_SQL);
+            DB::statement($createLayoutTagTableSql);
+
+            $createLayoutTagRelationTableSql = str_replace(LayoutTagRelationTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagRelationTableConts::CREATE_TABLE_SQL);
+            DB::statement($createLayoutTagRelationTableSql);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+
     }
 
 }
