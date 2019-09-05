@@ -20,7 +20,7 @@ class CreateTableLogic
         if ( !$tableName ) { return false; }
 
         DB::beginTransaction();
-        $createLayoutTagSql = str_replace( LayoutTagTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagTableConts::CREATE_TABLE_SQL );
+        $createLayoutTagTableSql = str_replace( LayoutTagTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagTableConts::CREATE_TABLE_SQL );
         DB::statement( $createLayoutTagSql );
 
         $createLayoutTagRelationSql = str_replace( LayoutTagRelationTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagRelationTableConts::CREATE_TABLE_SQL );
