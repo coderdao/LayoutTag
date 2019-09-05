@@ -1,6 +1,6 @@
 <?php
 /**
- * Function:
+ * Function: 创建 标签系列表结构
  * Description:
  * Abo 2019/9/5 21:18
  * Email: abo2013@foxmail.com
