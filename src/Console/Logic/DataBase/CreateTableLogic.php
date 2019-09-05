@@ -45,11 +45,9 @@ class CreateTableLogic
     }
 
     /** 创建数据变更记录表 */
-    protected function createChangeLogTable( string $tableName = '' )
+    protected function createTable( string $tableName = '' )
     {
-        if ( !$tableName ) {
-            return false;
-        }
+        if ( !$tableName ) { return false; }
 
         $sql = str_replace( BptConst::TABLE_NAME_FLAG, $tableName, BptConst::CREATE_CHANGE_LOG_TABLE );
         return DB::statement( $sql );
