@@ -13,7 +13,7 @@ class LayoutTagTableConts
 {
     const TABLE_NAME_FLAG = '#TABLE_NAME#';
 
-    const CREATE_TABLE_SQL = "CREATE TABLE `" . self::TABLE_NAME_FLAG . "_tag_index` (
+    const CREATE_TABLE_SQL = "CREATE TABLE `layout_" . self::TABLE_NAME_FLAG . "_tag_index` (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `name` varchar(64) NOT NULL DEFAULT '' COMMENT '标签名',
       `attr` varchar(64) NOT NULL DEFAULT '' COMMENT '标签属性 [ 冗余字段 ]',

@@ -13,7 +13,7 @@ class LayoutTagRelationTableConts
 {
     const TABLE_NAME_FLAG = '#TABLE_NAME#';
 
-    const CREATE_TABLE_SQL = "CREATE TABLE `" . self::TABLE_NAME_FLAG . "_tag_relation` (
+    const CREATE_TABLE_SQL = "CREATE TABLE `layout_" . self::TABLE_NAME_FLAG . "_tag_relation` (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `key_type` varchar(30) NOT NULL COMMENT '关联类型,确认对应表',
       `key_id` int(10) unsigned NOT NULL COMMENT '关联id 与key_type配合使用',
