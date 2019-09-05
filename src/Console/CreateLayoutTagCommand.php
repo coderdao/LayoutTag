@@ -9,6 +9,8 @@
 namespace Abo\LayoutTag\Console;
 
 
+use Abo\LayoutTag\Console\Logic\DataBase\CreateTableLogic;
+
 class CreateLayoutTagCommand
 {
     /** The name and signature of the console command. @var string */
@@ -28,7 +30,11 @@ class CreateLayoutTagCommand
 
     protected function createAppClientCommands()
     {
-        $CommandAutoClientLogic = new CommandAutoClientLogic( trim($this->argument('name')) );
+        $prefix = trim($this->argument('name'));
+        
+        CreateTableLogic::createTable( $prefix ); // 创建tag 表
+
+        $CommandAutoClientLogic = new CommandAutoClientLogic( $prefix );
 
         $CommandAutoClientLogic->setTableSetting();         // 触发器,change_log表设置
         $CommandAutoClientLogic->createAppClientCommands(); // 同步命令添加

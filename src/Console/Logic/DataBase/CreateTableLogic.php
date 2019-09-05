@@ -15,7 +15,7 @@ use Abo\LayoutTag\V1\Conts\LayoutTagTableConts;
 class CreateTableLogic
 {
     /** 创建数据变更记录表 */
-    protected function createTable( string $tableName = '' )
+    public static function createTable( string $tableName = '' )
     {
         if ( !$tableName ) { return false; }
 
