@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Repositories\LayoutMaterialTag;
+
+use Abo\LayoutTag\V1\Repository\LayoutTagRelationRepository;
+
+class LayoutTagRelationRepository extends LayoutTagRelationRepository
+{
+    public function __construct()
+    {
+        parent::__construct( $Model );
+    }
+}
