@@ -1,17 +1,16 @@
 <?php
 
-namespace Abo\LayoutTag\V0\Repository;
+namespace Abo\LayoutTag\V1\Repository;
 
 
 use Abo\Generalutil\V1\Repositories\BaseRepository;
-use Abo\LayoutTag\V0\Model\LayoutTagRelation;
 use Illuminate\Database\Eloquent\Model;
 
 class LayoutTagRelationRepository extends BaseRepository
 {
-    public function __construct()
+    public function __construct( $Model )
     {
-        parent::__construct( new LayoutTagRelation() );
+        parent::__construct( $Model );
     }
 
     /**

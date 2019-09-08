@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LayoutTagRepository extends BaseRepository
 {
-    public function __construct()
+    public function __construct( $Model )
     {
-        parent::__construct( new LayoutTag() );
+        parent::__construct( $Model );
     }
 
     /**
