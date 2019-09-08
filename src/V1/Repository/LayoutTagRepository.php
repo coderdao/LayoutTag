@@ -1,5 +1,5 @@
 <?php
-namespace Abo\LayoutTag\V0\Repository;
+namespace Abo\LayoutTag\V1\Repository;
 
 use Abo\Generalutil\V1\Repositories\BaseRepository;
 use Abo\Generalutil\V1\Utils\AnalysisUtil;
