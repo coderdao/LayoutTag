@@ -34,12 +34,12 @@ class CreateLayoutTagCommand
         
         CreateTableLogic::createTable( $prefix ); // 创建tag 表
 
-        $CommandAutoClientLogic = new CommandAutoClientLogic( $prefix );
-
-        $CommandAutoClientLogic->setTableSetting();         // 触发器,change_log表设置
-        $CommandAutoClientLogic->createAppClientCommands(); // 同步命令添加
-        $CommandAutoClientLogic->createAppClientLogic();    // 同步逻辑添加
-        $CommandAutoClientLogic->createAppClientRepository(); // 同步模型操作添加
+//        $CommandAutoClientLogic = new CommandAutoClientLogic( $prefix );
+//
+//        $CommandAutoClientLogic->setTableSetting();         // 触发器,change_log表设置
+//        $CommandAutoClientLogic->createAppClientCommands(); // 同步命令添加
+//        $CommandAutoClientLogic->createAppClientLogic();    // 同步逻辑添加
+//        $CommandAutoClientLogic->createAppClientRepository(); // 同步模型操作添加
 
         return '完成客户端创建';
     }
