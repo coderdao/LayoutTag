@@ -40,6 +40,14 @@ class LayoutTagRelationRepository extends BaseRepository
         return $SearchModel->toArray();
     }
 
+    /**
+     * 保存单标签，多文件信息
+     * @param string $keyType
+     * @param $keyId 多标签 , 号分割
+     * @param $tagName
+     * @return bool|int|mixed
+     * @throws \Exception
+     */
     public function saveTagRelation( string $keyType, $keyId, $tagName )
     {
         $ret2Return = false;
@@ -52,7 +60,7 @@ class LayoutTagRelationRepository extends BaseRepository
     }
 
     /**
-     * 保存 ( 增/改 ) 标签信息
+     * 保存 单文件， ( 增/改 ) 单标签信息
      * @method LayoutTagRelationRepository::saveTagRelation
      * @param string $keyType 关联类型
      * @param int $keyId      关联id

@@ -20,17 +20,17 @@ class CreateTableLogic
         if ( !$tableName ) { return false; }
 
         try {
-            DB::beginTransaction();
+            \DB::beginTransaction();
 
             $createLayoutTagTableSql = str_replace(LayoutTagTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagTableConts::CREATE_TABLE_SQL);
-            DB::statement($createLayoutTagTableSql);
+            \DB::statement($createLayoutTagTableSql);
 
             $createLayoutTagRelationTableSql = str_replace(LayoutTagRelationTableConts::TABLE_NAME_FLAG, $tableName, LayoutTagRelationTableConts::CREATE_TABLE_SQL);
-            DB::statement($createLayoutTagRelationTableSql);
+            \DB::statement($createLayoutTagRelationTableSql);
 
-            DB::commit();
+            \DB::commit();
         } catch (\Exception $e) {
-            DB::rollBack();
+            \DB::rollBack();
             return '[ 失败 ]数据表-创建失败';
         }
 

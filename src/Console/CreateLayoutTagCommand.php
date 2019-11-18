@@ -8,10 +8,11 @@
 
 namespace Abo\LayoutTag\Console;
 
-
+use Abo\LayoutTag\Console\Logic\Common\CommandAutoCreateClientLogic;
+use Illuminate\Console\Command;
 use Abo\LayoutTag\Console\Logic\DataBase\CreateTableLogic;
 
-class CreateLayoutTagCommand
+class CreateLayoutTagCommand extends Command
 {
     /** The name and signature of the console command. @var string */
     protected $signature = 'layout_tag:create {name}';
@@ -34,6 +35,12 @@ class CreateLayoutTagCommand
         
         CreateTableLogic::createTable( $prefix ); // 创建tag 表
 
+        $CommandAutoCreateClientLogic = new CommandAutoCreateClientLogic( $prefix );
+
+        $CommandAutoCreateClientLogic->createModelLogic(); // 同步 模型 添加
+        $CommandAutoCreateClientLogic->createRepositoryLogic(); // 同步 数据处理层 添加
+
+
 //        $CommandAutoClientLogic = new CommandAutoClientLogic( $prefix );
 //
 //        $CommandAutoClientLogic->setTableSetting();         // 触发器,change_log表设置
@@ -43,4 +50,5 @@ class CreateLayoutTagCommand
 
         return '完成客户端创建';
     }
+
 }

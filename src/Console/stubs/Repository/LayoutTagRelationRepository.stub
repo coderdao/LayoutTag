@@ -2,12 +2,13 @@
 
 namespace App\Repositories\LayoutMaterialTag;
 
+use App\Model\LayoutTag\DummyModel;
 use Abo\LayoutTag\V1\Repository\LayoutTagRelationRepository;
 
-class LayoutTagRelationRepository extends LayoutTagRelationRepository
+class DummyClass extends LayoutTagRelationRepository
 {
     public function __construct()
     {
-        parent::__construct( $Model );
+        parent::__construct( new DummyModel() );
     }
 }

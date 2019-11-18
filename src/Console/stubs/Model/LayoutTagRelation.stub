@@ -1,0 +1,15 @@
+<?php
+namespace App\Model\LayoutTag;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DummyClass extends Model
+{
+    public $table = 'DummyTable';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+
+    /** 不可被批量赋值的属性。 @var array */
+    protected $guarded = [];
+
+}

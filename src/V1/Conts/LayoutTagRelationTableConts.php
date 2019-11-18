@@ -11,6 +11,7 @@ namespace Abo\LayoutTag\V1\Conts;
 
 class LayoutTagRelationTableConts
 {
+    const TABLE_NAME = 'layout_#TABLE_NAME#_tag_relation';
     const TABLE_NAME_FLAG = '#TABLE_NAME#';
 
     const CREATE_TABLE_SQL = "CREATE TABLE `layout_" . self::TABLE_NAME_FLAG . "_tag_relation` (
