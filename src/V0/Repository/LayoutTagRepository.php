@@ -90,4 +90,30 @@ class LayoutTagRepository extends BaseRepository
         return [ $tagName, $ret2ExistTagId ];
 
     }
+
+    /**
+     * 添加标签数组
+     * @param array $tagName 标签名 ( 数组 )
+     * @return array
+     * @throws \Exception
+     */
+    private function insertTagArray( array $tagName )
+    {
+        $tagName = array_unique( array_filter( $tagName ) );
+        if ( !$tagName ) { throw new \Exception( '标签名必填', -100 ); }
+
+        // 重复的 就直接取id ~ 1ms 左右,看数据库波动
+        $ret2ExistTagId = $this->Model->whereIn( 'name', $tagName )->pluck( 'id', 'name' );
+        if ( $ret2ExistTagId ){
+            $ret2Return = $ret2ExistTagId->toArray();
+            $tagName = array_diff( $tagName, array_keys( $ret2Return ) ); // 不存在标签留下一步新增
+        }
+
+        foreach ( $tagName as $v2Tag ) {
+            $tagInfo = $this->insertTag( $v2Tag ); // list( $tagName, $tagId ) = $this->insertTag( $tag );
+            $ret2Return[ $tagInfo[0] ] = $tagInfo[1];
+        }
+
+        return $ret2Return;
+    }
 }
