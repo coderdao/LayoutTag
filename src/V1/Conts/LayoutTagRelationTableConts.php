@@ -26,5 +26,5 @@ class LayoutTagRelationTableConts
       UNIQUE KEY `udx_key_tag` (`key_type`,`key_id`,`tag_id`) USING BTREE,
       KEY `idx_tagid` (`tag_id`) USING BTREE,
       KEY `idx_name` (`name`) USING BTREE
-    ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4;";
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='标签-文件，关系表';";
 }
