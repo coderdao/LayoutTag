@@ -60,7 +60,7 @@ class LayoutTagRelationRepository extends BaseRepository
     }
 
     /**
-     * 保存 单文件， ( 增/改 ) 单标签信息
+     * 保存 ( 增/改 ) 标签信息
      * @method LayoutTagRelationRepository::saveTagRelation
      * @param string $keyType 关联类型
      * @param int $keyId      关联id
