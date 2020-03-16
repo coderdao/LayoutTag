@@ -28,5 +28,5 @@ class LayoutTagTableConts
           `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
           PRIMARY KEY (`id`),
           UNIQUE KEY `idx_name` (`name`) USING BTREE
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; COMMENT='标签主表'";
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='标签主表'";
 }

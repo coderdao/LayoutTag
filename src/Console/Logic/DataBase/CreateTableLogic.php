@@ -31,6 +31,7 @@ class CreateTableLogic
             \DB::commit();
         } catch (\Exception $e) {
             \DB::rollBack();
+            dd( $e->getMessage() );
             return '[ 失败 ]数据表-创建失败';
         }
 
